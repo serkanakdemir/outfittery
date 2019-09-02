@@ -4,10 +4,10 @@
 
 In this project, online appointment system has been designed and implemented. Here are the design initiatives.
 
- * One day consist of Slots, number of slots in a day can be dynamicaly changed. For that purpose, SLOT_DEFINITION table has  been created.
- * By a scheduled job, all required time slots are created by the application which means that databases stores all time slots as calendar internally. This brings simplification to code complexity and performance incresement. For sure there might be some disadvanteges(srotage capacity etc.). Please check the SLOT table for further details.
- * By the same scheduled job, for each stylist, new database records are created for each slot mentioned above. This part is open for discussion. Please check STYLIST_SLOT table for details. This table is the most critical part of the system and Optimictic Lock is used to prevent system to provide consistent data.
- * DataRange is set harcodedly 14 days which means that cleint can check up to 14 days upcoming days. Otherwise there will be no SLOT created by the scheduled job.
+ * One day consist of Slots, number of slots in a day can be dynamically set. For that purpose, SLOT_DEFINITION table has  been created.
+ * By a scheduled job, all required time slots are created in a day by the application which means that databases stores all time slots as calendar internally. This brings simplification to code complexity and performance increasement. For sure there might be some disadvanteges(storage capacity etc.) and it is an open topic. Please check the SLOT table for further details.
+ * By the same scheduled job, for each stylist, new database records are created for each slot mentioned above. This part is open for discussion as well. Please check STYLIST_SLOT table for details. This table is the most critical part of the system and Optimictic Lock is used to prevent system from unconsistent data.
+ * DataRange is set harcodedly 14 days which means that cleint can query up to 14 days upcoming days for an appointment. Otherwise there will be no SLOT created by the scheduled job.
  * Stylist can work from 9 am to 16 pm and this values are also hardcoded. Also a stylist's state must be ACTIVE in order to accept appointments.
 
 
